@@ -1,5 +1,6 @@
 const express = require('express');
 const authRouter = require("./users/auth-router")
+const principlesRouter = require("./principles/principles-router")
 const dotenv = require('dotenv')
 const cors = require('cors')
 const helmet = require("helmet")
@@ -20,5 +21,6 @@ server.get("/", (req, res) => {
 })
 
 server.use('/auth', authRouter);
+server.use('/principles', principlesRouter)
 
 module.exports = server;

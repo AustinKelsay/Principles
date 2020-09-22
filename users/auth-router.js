@@ -53,6 +53,7 @@ function generateToken(user) {
   const payload = {
     subject: user.id,
     username: user.username,
+    admin: user.admin
   };
   const secret = process.env.JWT_SECRET || "Satoshi Nakamoto";
 

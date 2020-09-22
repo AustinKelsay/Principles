@@ -10,6 +10,10 @@ exports.up = function(knex) {
         users
           .string('password', 128)
           .notNullable();
+
+        users
+          .boolean("admin")
+          .defaultTo(0)
   
     })
       .createTable('principles', (principles) => {
