@@ -10,6 +10,10 @@ exports.up = function(knex) {
         users
           .string('password', 128)
           .notNullable();
+
+        users
+          .boolean("admin")
+          .defaultTo(0)
   
     })
       .createTable('principles', (principles) => {
@@ -41,7 +45,7 @@ exports.up = function(knex) {
             .inTable('users')
             .onUpdate("CASCADE")
             .onDelete("CASCADE");
-        tbl.primary(["project_id", "resource_id"]);
+        userP.primary(["principles_id", "user_id"]);
       })
   };
   
