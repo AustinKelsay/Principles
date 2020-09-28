@@ -4,12 +4,13 @@ const userPrinciples = require("./user-principles-model");
 const authenticate = require('../users/authenticate-middleware');
 
 
-router.get("/", authenticate, (req, res) => {
+router.get("/:id", authenticate, (req, res) => {
     userPrinciples.find(req.params.id)
       .then((principles) => {
         res.status(200).json(principles);
       })
       .catch((err) => {
+          console.log(err)
           res.status(400).json({message: err})
       });
 });

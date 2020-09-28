@@ -23,6 +23,6 @@ server.get("/", (req, res) => {
 
 server.use('/auth', authRouter);
 server.use('/principles', principlesRouter);
-server.use('/principles/user/:id', userPrinciplesRouter);
+server.use('/principles/user', userPrinciplesRouter);
 
 module.exports = server;
