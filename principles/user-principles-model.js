@@ -3,6 +3,7 @@ const db = require("../database/dbConfig");
 module.exports = {
   add,
   find,
+  findBy,
   update,
   remove
 };
@@ -14,11 +15,15 @@ function find(id) {
     
 }
 
+function findBy(filter) {
+  return db("principles").where(filter).first();
+}
+
 async function add(principle) {
     return db("principles")
     .insert(principle, "id")
     .then(([id]) => {
-        return findById(id);
+        return findBy(id);
     });
 }
 

@@ -15,14 +15,25 @@ router.get("/", authenticate, (req, res) => {
       });
 });
 
+router.get("/:id", authenticate, (req, res) => {
+  Principles.findById(req.params.id)
+    .then((principles) => {
+      res.status(200).json(principles);
+    })
+    .catch((err) => {
+        res.status(400).json({message: err})
+    });
+});
+
 
 router.post("/", authenticate, (req, res) => {
+  console.log(req.body)
     Principles.add(req.body)
         .then(principles => {
             res.status(201).json(principles);
         })
         .catch(error => {
-            res.status(500).json(error.message);
+            res.status(500).json({error: error.message});
         });
 });
 
