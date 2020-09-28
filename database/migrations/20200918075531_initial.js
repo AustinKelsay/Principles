@@ -18,40 +18,32 @@ exports.up = function(knex) {
     })
       .createTable('principles', (principles) => {
           principles.increments();
+
+          principles
+          .integer('user_id')
+          .notNullable()
+          .unsigned()
+          .references('id')
+          .inTable('users')
+          .onUpdate("CASCADE")
+          .onDelete("CASCADE");
+
           principles
           .string('problem')
           .notNullable()
           .unique()
+
           principles.string('diagnosis')
           .notNullable()
+          
           principles.string('change')
           .notNullable()
           .unique()
       }))
-      .createTable('user_principles', (userP) => {
-        userP
-            .integer('principles_id')
-            .notNullable()
-            .unsigned()
-            .references('id')
-            .inTable('principles')
-            .onUpdate("CASCADE")
-            .onDelete("CASCADE");
-        userP
-            .integer('user_id')
-            .notNullable()
-            .unsigned()
-            .references('id')
-            .inTable('users')
-            .onUpdate("CASCADE")
-            .onDelete("CASCADE");
-        userP.primary(["principles_id", "user_id"]);
-      })
   };
   
   exports.down = function(knex) {
       return( knex.schema
-        .dropTableIfExists('user_principles')
         .dropTableIfExists("principles")
         .dropTableIfExists("users")
       )

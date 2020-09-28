@@ -1,44 +1,33 @@
 const router = require("express").Router();
 
-const Principles = require("./principles-model");
+const userPrinciples = require("./user-principles-model");
 const authenticate = require('../users/authenticate-middleware');
-const authenticateAdmin = require("../users/authenticate-admin-middleware")
 
 
-router.get("/", authenticate, (req, res) => {
-    Principles.find()
+router.get("/:id", authenticate, (req, res) => {
+    userPrinciples.find(req.params.id)
       .then((principles) => {
         res.status(200).json(principles);
       })
       .catch((err) => {
+          console.log(err)
           res.status(400).json({message: err})
       });
 });
 
-router.get("/:id", authenticate, (req, res) => {
-  Principles.findById(req.params.id)
-    .then((principles) => {
-      res.status(200).json(principles);
-    })
-    .catch((err) => {
-        res.status(400).json({message: err})
-    });
-});
-
 
 router.post("/", authenticate, (req, res) => {
-  console.log(req.body)
     Principles.add(req.body)
         .then(principles => {
             res.status(201).json(principles);
         })
         .catch(error => {
-            res.status(500).json({error: error.message});
+            res.status(500).json(error.message);
         });
 });
 
 
-router.delete("/:id", authenticateAdmin, (req, res) => {
+router.delete("/:id", authenticate, (req, res) => {
     const { id } = req.params;
     Principles.remove(id)
     .then((principles) => {
@@ -56,7 +45,7 @@ router.delete("/:id", authenticateAdmin, (req, res) => {
       });
   });
 
-  router.put("/:id", authenticateAdmin, (req, res) => {
+  router.put("/:id", authenticate, (req, res) => {
     Principles.update(req.params.id, req.body)
       .then(principles => {
         if (principles) {

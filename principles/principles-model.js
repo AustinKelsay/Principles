@@ -3,7 +3,7 @@ const db = require("../database/dbConfig");
 module.exports = {
   add,
   find,
-  findBy,
+  findById,
   update,
   remove
 };
@@ -12,16 +12,12 @@ function find() {
   return db("principles");
 }
 
-function findBy(filter) {
-  return db("principles").where(filter).first();
+function findById(id) {
+  return db("principles").where({ id }).first();
 }
 
 async function add(principle) {
-    return db("principles")
-    .insert(principle, "id")
-    .then(([id]) => {
-        return findById(id);
-    });
+    return db("principles").insert(principle, "id")
 }
 
 function update(id, changes) {
