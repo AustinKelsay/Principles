@@ -1,24 +1,4 @@
 # principles-frontend
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Color Scheme
+https://coolors.co/D70913-f9f8f0-000000-838383-f0efe7
