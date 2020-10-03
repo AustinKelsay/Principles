@@ -10,7 +10,7 @@ exports.seed = function(knex) {
           user_id: 2,
           problem: 'I am consuming too much sugar', 
           diagnosis: 'Sugar consumption is a habit I have developed to cope and reduce stress',
-          change: 'Replace this unhealthy habit with one that makes me feel better and live better and mark my habit tracker each tie I preform it instead of going to something sugary first'
+          change: 'Replace this unhealthy habit with one that makes me feel better and live better and mark my habit tracker each time I preform it instead of going to something sugary first'
         },
         {
           id: 2, 
