@@ -16,7 +16,7 @@ export default {
 
 <style>
 .onboarding {
-    width: 85%;
+    width: 80%;
     margin: 3% auto;
     border: 1px solid #D70913;
     padding-top: 8%;
@@ -30,13 +30,16 @@ export default {
 }
 
 .btn {
-    width: 15%;
+    width: 12%;
     padding: 2%;
     margin-left: 12%;
     margin-right: 12%;
     background: transparent;
     border: 1px solid #f0efe7;
     color: #D70913;
+    cursor: pointer;
+    font-size: 1rem;;
+    letter-spacing: 0.2ch
 }
 
 .btn:hover, .btn:focus {

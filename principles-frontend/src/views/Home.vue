@@ -2,13 +2,14 @@
   <div class="home">
     <h1>Principles App</h1>
     <Onboarding />
-    <p>Principles app is inspired the book Principles by Ray Dalio</p>
-    <br/>
+    <h3>Principles app is inspired by the book Principles by Ray Dalio</h3>
+
     <p>Principles has had a hugely positive impace on my life 
       and has helped me develop the habit of recording and reflecting 
       on my principles especially as problems arise.</p>
-    <br/>
+
     <p>I made this App as a tool to help me record my principles and discover other peoples principles</p>
+    <Footer />
   </div>
 </template>
 
@@ -37,7 +38,13 @@ export default {
   }
   .home p {
     width: 80%;
-    margin: 0% auto;
+    margin: 1% auto;
+  }
+  .home h3 {
+    width: 80%;
+    font-size: 1.3rem;
+    margin: 1% auto;
+    margin-bottom: 3%;
   }
 
 </style>
