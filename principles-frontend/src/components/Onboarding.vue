@@ -7,42 +7,59 @@
             <v-card-text>
                 <v-form>
                     <v-text-field 
+                    v-model="username"
                     prepend-icon="mdi-account-circle"
                     label="username" />
                     <v-text-field 
+                    v-model="password"
                     :type="showPassword ? 'text' : 'password'" 
                     label="password" 
                     prepend-icon="mdi-lock"
-                    append-icon="mdi-eye-off"
+                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                    @click:append="showPassword = !showPassword"
                     />
                 </v-form>
             </v-card-text>
             <v-card-actions>
-                <v-btn color="info">Login</v-btn>
+                <v-btn @click="loginUser" color="info">Login</v-btn>
                 <v-spacer />
-                <v-btn color="success">Register</v-btn>
+                <v-btn @click='registerUser' color="success">Register</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>
 </template>
 
 <script>
-
+import axios from "axios"
 export default {
     name: "Onboarding",
     data() {
         return {
-            title: ''
+            username: '',
+            password: '',
+            showPassword: false
         }
     },
     methods: {
         loginUser(e) {
             e.preventDefault()
-            // POST to login
+            axios.post('https://principles-backend.herokuapp.com/auth/login', {username: this.username, password: this.password})
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         },
         registerUser(e) {
             e.preventDefault()
-            // POST to reg
+            axios.post('https://principles-backend.herokuapp.com/auth/register', {username: this.username, password: this.password})
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         }
     }
 }
