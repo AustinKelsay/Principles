@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Principles App</h1>
-    <Onboarding />
+    <LandingButton />
     <h3>Principles app is inspired by the book Principles by Ray Dalio</h3>
 
     <p>Principles has had a hugely positive impace on my life 
@@ -15,23 +15,27 @@
 
 <script>
 // @ is an alias to /src
-import Onboarding from "../components/Onboarding"
+import LandingButton from "../components/LandingButton"
 
 
 export default {
   name: 'Home',
   components: {
-    Onboarding
+    LandingButton
   }
 }
 </script>
 
 <style>
   .home {
+    background-color: #838383;
     text-align: center;
     margin: 5% auto;
+    border-radius: 5px;
+    width: 80%;
   }
   .home h1 {
+    margin-top: 2%;
     font-size: 2rem;
     text-decoration: underline;
     text-decoration-color: #D70913;
