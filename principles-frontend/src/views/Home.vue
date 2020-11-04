@@ -35,6 +35,7 @@ export default {
     width: 80%;
   }
   .home h1 {
+    margin-top: 2%;
     font-size: 2rem;
     text-decoration: underline;
     text-decoration-color: #D70913;

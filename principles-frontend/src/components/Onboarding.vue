@@ -1,8 +1,8 @@
 <template>
-    <v-app>
+    <v-container>
         <v-card width="800" class="mx-auto mt-5">
             <v-card-title>
-                <h1>Login / Signup</h1>
+                <h1>Login / Register</h1>
             </v-card-title>
             <v-card-text>
                 <v-form>
@@ -23,7 +23,7 @@
                 <v-btn color="success">Register</v-btn>
             </v-card-actions>
         </v-card>
-    </v-app>
+    </v-container>
 </template>
 
 <script>
@@ -38,12 +38,11 @@ export default {
     methods: {
         loginUser(e) {
             e.preventDefault()
-            const newTodo = {
-                title: this.title,
-                completed: false
-            }
-            // send up to parent
-            this.$emit('add-todo', newTodo)
+            // POST to login
+        },
+        registerUser(e) {
+            e.preventDefault()
+            // POST to reg
         }
     }
 }
