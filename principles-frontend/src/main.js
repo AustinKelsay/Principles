@@ -3,12 +3,8 @@ import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify';
-import axios from 'axios'
-// import VueAxios from "vue-axios"
 
-// Vue.use(VueAxios, axios)
-
-Vue.prototype.$http = axios
+Vue.prototype.routing = router
 
 Vue.config.productionTip = false
 

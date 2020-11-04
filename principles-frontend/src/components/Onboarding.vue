@@ -46,6 +46,7 @@ export default {
             axios.post('https://principles-backend.herokuapp.com/auth/login', {username: this.username, password: this.password})
             .then((res) => {
                 console.log(res)
+                this.routing.push('Principles')
             })
             .catch((err) => {
                 console.log(err)
