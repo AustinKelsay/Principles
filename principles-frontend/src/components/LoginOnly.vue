@@ -2,7 +2,7 @@
     <v-container>
         <v-card width="800" class="mx-auto mt-5">
             <v-card-title>
-                <h1>Login / Register</h1>
+                <h1>Login</h1>
             </v-card-title>
             <v-card-text>
                 <v-form>
@@ -23,7 +23,6 @@
             <v-card-actions>
                 <v-btn @click="loginUser" color="info">Login</v-btn>
                 <v-spacer />
-                <v-btn @click='registerUser' color="success">Register</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>
@@ -32,7 +31,7 @@
 <script>
 import axios from "axios"
 export default {
-    name: "Onboarding",
+    name: "LoginOnly",
     data() {
         return {
             username: '',
@@ -48,17 +47,6 @@ export default {
                 console.log(res)
                 localStorage.setItem("token", res.data.token)
                 this.routing.push('Principles')
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-        },
-        registerUser(e) {
-            e.preventDefault()
-            axios.post('https://principles-backend.herokuapp.com/auth/register', {username: this.username, password: this.password})
-            .then((res) => {
-                console.log(res)
-                this.routing.push('login')
             })
             .catch((err) => {
                 console.log(err)
