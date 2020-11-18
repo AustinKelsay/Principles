@@ -9,7 +9,6 @@
       on my principles especially as problems arise.</p>
 
     <p>I made this App as a tool to help me record my principles and discover other peoples principles</p>
-    <Footer />
   </div>
 </template>
 
